@@ -5,6 +5,12 @@ content:
     type: file
     path: content.json
     fields:
+      - name: header_logo
+        label: Header Logo Image (Optional)
+        type: image
+      - name: header_title
+        label: Header Text Title (Leave blank if image only)
+        type: string
       - name: announcement
         label: Top Announcement Banner
         type: string
