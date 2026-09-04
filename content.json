@@ -2,9 +2,40 @@
   "announcement": "FALL REGISTRATION IS NOW OPEN! Classes start after Labor Day.",
   "hero_title": "Dancing for Joy!",
   "hero_subtitle": "Non-competitive, easy-going dance classes for ages 5 to 95 in Columbia & Lexington, SC.",
-  "about_text": "We offer non-competitive, friendly classes focused on building self-confidence, socialization, and coordination. Home of the Columbia Tappers!",
+  "hero_image": "images/hero.jpg",
+  "about_text": "We offer non-competitive, friendly classes focused on building self-confidence, socialization, and developing coordination.",
   "quote": "“There is nothing impossible to him who will try.” — Alexander the Great",
+  "programs": [
+    {
+      "title": "Tap Dance",
+      "subtitle": "Ages 5 through ADULTS",
+      "image": "images/IMG_5810.JPG"
+    },
+    {
+      "title": "Columbia Tappers",
+      "subtitle": "Performance Group - All Ages Welcome",
+      "image": "images/IMG_6446.JPG"
+    },
+    {
+      "title": "Clogging",
+      "subtitle": "Adults & Kids",
+      "image": "images/d.jpg"
+    }
+  ],
+  "gallery": [
+    {
+      "image": "images/IMG_5810.JPG",
+      "caption": "Tap class students in action!"
+    },
+    {
+      "image": "images/IMG_6446.JPG",
+      "caption": "Home of the Columbia Tappers"
+    },
+    {
+      "image": "images/d.jpg",
+      "caption": "Fun and energetic clogging classes"
+    }
+  ],
   "phone": "803-924-1231",
-  "email": "Christy.Mills@SCMusicAndDanceAcademy.com",
-  "hero_image": "/images/logo++sc+music+and+dance+no+number.webp"
+  "email": "Christy.Mills@SCMusicAndDanceAcademy.com"
 }
