@@ -59,7 +59,9 @@
     },
     {
       "title": "Sign Up for our Newsletter",
-      "url": "https://www.scmusicanddanceacademy.com/newsletter"
+      "description": "Is this mailchimp?",
+      "url": "https://www.scmusicanddanceacademy.com/newsletter",
+      "button_text": "Signup Here"
     }
   ],
   "phone": "803-924-1231",
