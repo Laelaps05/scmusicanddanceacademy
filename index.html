@@ -11,7 +11,7 @@
   <!-- Top Dynamic Announcement -->
   <div id="announcement" class="banner">Loading announcement...</div>
 
-  <!-- Header -->
+  <!-- Navigation Header -->
   <header>
     <a href="#" class="logo">SC Music & Dance Academy</a>
     <nav>
@@ -22,22 +22,25 @@
     </nav>
   </header>
 
-  <!-- Hero Section -->
+  <!-- Hero Section with Dynamic Main Image -->
   <section class="hero">
     <h1 id="hero_title">SC Music & Dance Academy</h1>
     <p id="hero_subtitle">Loading studio information...</p>
     <a href="#contact" class="btn">Register / Inquire Now</a>
+
+    <div class="hero-image-wrapper">
+      <img id="hero_img" src="" alt="SC Music and Dance Academy Studio Photo">
+    </div>
   </section>
 
   <!-- About Section -->
   <div class="container" id="about">
     <h2 class="section-title">Welcome to Our Academy</h2>
-    <p id="about_text" style="text-align: center; font-size: 1.1rem;"></p>
-
+    <div id="about_text" style="text-align: center; font-size: 1.1rem;"></div>
     <div class="quote-box" id="quote"></div>
   </div>
 
-  <!-- Classes Section -->
+  <!-- Class Offerings -->
   <div class="container" id="classes">
     <h2 class="section-title">Class Offerings</h2>
     <div class="grid">
@@ -56,7 +59,7 @@
     </div>
   </div>
 
-  <!-- Locations Section -->
+  <!-- Studio Locations -->
   <div class="container" id="locations">
     <h2 class="section-title">Our Locations</h2>
     <div class="grid">
@@ -71,7 +74,7 @@
     </div>
   </div>
 
-  <!-- Footer / Contact -->
+  <!-- Footer / Contact Information -->
   <footer id="contact">
     <h3>SC Music and Dance Academy</h3>
     <p style="margin: 10px 0;">Classes Monday–Friday (Afternoon & Evening)</p>
@@ -85,13 +88,19 @@
     fetch('./content.json')
       .then(res => res.json())
       .then(data => {
+        // Image binding
+        if (data.hero_image) {
+          document.getElementById('hero_img').src = data.hero_image;
+        }
+
+        // Text bindings
         document.getElementById('announcement').innerText = data.announcement;
         document.getElementById('hero_title').innerText = data.hero_title;
         document.getElementById('hero_subtitle').innerText = data.hero_subtitle;
         document.getElementById('about_text').innerHTML = data.about_text;
         document.getElementById('quote').innerText = data.quote;
         
-        // Update contact links
+        // Contact link bindings
         const emailLink = document.getElementById('email_link');
         emailLink.innerText = data.email;
         emailLink.href = 'mailto:' + data.email;

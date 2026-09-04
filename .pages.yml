@@ -26,3 +26,9 @@ content:
       - name: email
         label: Contact Email
         type: string
+      - name: hero_image
+        label: Top Hero Photo
+        type: image
+      - name: announcement
+        label: Announcement Banner
+        type: string
