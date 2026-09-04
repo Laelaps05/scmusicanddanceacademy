@@ -1,13 +1,28 @@
 media: images
 content:
   - name: homepage
-    label: Homepage Text
+    label: Site Content
     type: file
     path: content.json
     fields:
-      - name: announcement_banner
-        label: Announcement Banner
+      - name: announcement
+        label: Top Announcement Banner
         type: string
-      - name: welcome_message
-        label: Welcome Message
+      - name: hero_title
+        label: Hero Title
+        type: string
+      - name: hero_subtitle
+        label: Hero Subtitle
+        type: string
+      - name: about_text
+        label: About Section Paragraph
         type: rich-text
+      - name: quote
+        label: Featured Quote
+        type: string
+      - name: phone
+        label: Phone Number
+        type: string
+      - name: email
+        label: Contact Email
+        type: string

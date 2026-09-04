@@ -1,0 +1,42 @@
+:root {
+  --primary: #6b2d5c; /* Deep studio purple */
+  --accent: #d4a373;  /* Warm gold */
+  --dark: #2b2d42;
+  --light: #f8f9fa;
+  --white: #ffffff;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: var(--dark); background: var(--light); line-height: 1.6; }
+
+/* Announcement Banner */
+.banner { background: var(--accent); color: var(--dark); text-align: center; padding: 10px 20px; font-weight: bold; }
+
+/* Header & Nav */
+header { background: var(--white); display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; box-shadow: 0 2px 10px rgba(0,0,0,0.05); sticky: top; }
+.logo { font-size: 1.4rem; font-weight: bold; color: var(--primary); text-decoration: none; }
+nav a { margin-left: 20px; text-decoration: none; color: var(--dark); font-weight: 500; }
+nav a:hover { color: var(--primary); }
+
+/* Hero Section */
+.hero { background: linear-gradient(rgba(107, 45, 92, 0.85), rgba(43, 45, 66, 0.85)), url('https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=1200&q=80') center/cover; color: var(--white); text-align: center; padding: 80px 20px; }
+.hero h1 { font-size: 2.8rem; margin-bottom: 10px; }
+.hero p { font-size: 1.2rem; max-width: 600px; margin: 0 auto 20px; }
+.btn { display: inline-block; background: var(--accent); color: var(--dark); padding: 12px 25px; border-radius: 25px; text-decoration: none; font-weight: bold; transition: 0.2s; }
+.btn:hover { background: var(--white); }
+
+/* Main Content Containers */
+.container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+.section-title { text-align: center; color: var(--primary); margin-bottom: 30px; font-size: 2rem; }
+
+/* Program Cards Grid */
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.card { background: var(--white); padding: 25px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; border-top: 4px solid var(--primary); }
+.card h3 { color: var(--primary); margin-bottom: 10px; }
+
+/* Quote Box */
+.quote-box { background: #f0e6ed; padding: 30px; border-left: 5px solid var(--primary); margin: 40px 0; border-radius: 4px; font-style: italic; text-align: center; font-size: 1.1rem; }
+
+/* Footer */
+footer { background: var(--dark); color: var(--white); text-align: center; padding: 30px 20px; margin-top: 50px; }
+footer a { color: var(--accent); text-decoration: none; }

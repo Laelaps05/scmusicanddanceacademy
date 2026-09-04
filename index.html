@@ -1,13 +1,107 @@
-<!-- HTML Elements -->
-<div id="announcement"></div>
-<div id="welcome"></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SC Music and Dance Academy</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-<!-- Script to pull live text from content.json -->
-<script>
-  fetch('./content.json')
-    .then(response => response.json())
-    .then(data => {
-      document.getElementById('announcement').innerText = data.announcement_banner;
-      document.getElementById('welcome').innerHTML = data.welcome_message;
-    });
-</script>
+  <!-- Top Dynamic Announcement -->
+  <div id="announcement" class="banner">Loading announcement...</div>
+
+  <!-- Header -->
+  <header>
+    <a href="#" class="logo">SC Music & Dance Academy</a>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#classes">Classes</a>
+      <a href="#locations">Locations</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1 id="hero_title">SC Music & Dance Academy</h1>
+    <p id="hero_subtitle">Loading studio information...</p>
+    <a href="#contact" class="btn">Register / Inquire Now</a>
+  </section>
+
+  <!-- About Section -->
+  <div class="container" id="about">
+    <h2 class="section-title">Welcome to Our Academy</h2>
+    <p id="about_text" style="text-align: center; font-size: 1.1rem;"></p>
+
+    <div class="quote-box" id="quote"></div>
+  </div>
+
+  <!-- Classes Section -->
+  <div class="container" id="classes">
+    <h2 class="section-title">Class Offerings</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Tap Dance</h3>
+        <p>Ages 5 through Adults. Develop rhythm, coordination, and technique in a supportive environment.</p>
+      </div>
+      <div class="card">
+        <h3>Clogging</h3>
+        <p>Available for both kids and adults. Fun, high-energy classes for all skill levels.</p>
+      </div>
+      <div class="card">
+        <h3>Columbia Tappers</h3>
+        <p>Our premier performance group featuring dancers of all ages. Available for local event entertainment!</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Locations Section -->
+  <div class="container" id="locations">
+    <h2 class="section-title">Our Locations</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Columbia</h3>
+        <p>Town Theatre / The Unumb Center</p>
+      </div>
+      <div class="card">
+        <h3>Lexington</h3>
+        <p>Village Square Theatre</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer / Contact -->
+  <footer id="contact">
+    <h3>SC Music and Dance Academy</h3>
+    <p style="margin: 10px 0;">Classes Monday–Friday (Afternoon & Evening)</p>
+    <p>Email: <a id="email_link" href="">Loading...</a></p>
+    <p>Phone: <a id="phone_link" href="">Loading...</a></p>
+    <p style="margin-top: 20px; font-size: 0.8rem; color: #aaa;">&copy; SC Music and Dance Academy</p>
+  </footer>
+
+  <!-- Script to load Pages CMS content -->
+  <script>
+    fetch('./content.json')
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('announcement').innerText = data.announcement;
+        document.getElementById('hero_title').innerText = data.hero_title;
+        document.getElementById('hero_subtitle').innerText = data.hero_subtitle;
+        document.getElementById('about_text').innerHTML = data.about_text;
+        document.getElementById('quote').innerText = data.quote;
+        
+        // Update contact links
+        const emailLink = document.getElementById('email_link');
+        emailLink.innerText = data.email;
+        emailLink.href = 'mailto:' + data.email;
+
+        const phoneLink = document.getElementById('phone_link');
+        phoneLink.innerText = data.phone;
+        phoneLink.href = 'tel:' + data.phone.replace(/[^0-9]/g, '');
+      })
+      .catch(err => console.error("Could not load content.json", err));
+  </script>
+
+</body>
+</html>
