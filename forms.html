@@ -50,7 +50,7 @@
   </footer>
 
   <!-- Script to load content dynamically -->
-  <script>
+<script>
     function cleanImagePath(path) {
       if (!path) return '';
       let cleanPath = path.trim();
@@ -60,10 +60,10 @@
       return cleanPath;
     }
 
+    // 1. Fetch Header & Contact Info from content.json
     fetch('./content.json')
       .then(res => res.json())
       .then(data => {
-        // Header Elements
         const logoImg = document.getElementById('header_logo');
         const logoText = document.getElementById('header_text');
 
@@ -71,7 +71,6 @@
           logoImg.src = cleanImagePath(data.header_logo);
           logoImg.style.display = 'block';
         }
-
         if (data.header_title) {
           logoText.innerText = data.header_title;
           logoText.style.display = 'block';
@@ -79,27 +78,6 @@
 
         document.getElementById('announcement').innerText = data.announcement || '';
 
-        // Render Forms List
-        const formsContainer = document.getElementById('forms_container');
-        if (data.forms && Array.isArray(data.forms) && data.forms.length > 0) {
-          formsContainer.innerHTML = data.forms.map(form => `
-            <div class="form-card">
-              <div class="form-card-info">
-                <h3>${form.title}</h3>
-                ${form.description ? `<p>${form.description}</p>` : ''}
-              </div>
-              <div class="form-card-action">
-                <a href="${form.url || '#'}" target="_blank" rel="noopener" class="btn">
-                  ${form.button_text || 'View / Download PDF'}
-                </a>
-              </div>
-            </div>
-          `).join('');
-        } else {
-          formsContainer.innerHTML = '<p style="text-align: center;">No forms currently posted.</p>';
-        }
-
-        // Contact Links
         if (data.email) {
           const emailLink = document.getElementById('email_link');
           emailLink.innerText = data.email;
@@ -111,9 +89,33 @@
           phoneLink.innerText = data.phone;
           phoneLink.href = 'tel:' + data.phone.replace(/[^0-9]/g, '');
         }
-      })
-      .catch(err => console.error("Error loading content.json:", err));
-  </script>
+      });
 
+    // 2. Fetch Forms Data from forms.json
+    fetch('./forms.json')
+      .then(res => res.json())
+      .then(data => {
+        const formsContainer = document.getElementById('forms_container');
+        
+        if (data.forms && Array.isArray(data.forms) && data.forms.length > 0) {
+          formsContainer.innerHTML = data.forms.map(form => `
+            <div class="form-card">
+              <div class="form-card-info">
+                <h3>${form.title}</h3>
+                ${form.description ? `<p>${form.description}</p>` : ''}
+              </div>
+              <div class="form-card-action">
+                <a href="${form.url || '#'}" target="_blank" rel="noopener" class="btn">
+                  ${form.button_text || 'Download PDF'}
+                </a>
+              </div>
+            </div>
+          `).join('');
+        } else {
+          formsContainer.innerHTML = '<p style="text-align: center;">No forms currently posted.</p>';
+        }
+      })
+      .catch(err => console.error("Error loading forms.json:", err));
+  </script>
 </body>
 </html>

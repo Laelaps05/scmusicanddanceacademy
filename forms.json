@@ -1,0 +1,18 @@
+{
+  "page_title": "Printable Forms & Documents",
+  "page_subtitle": "Click any form below to view or download a printable PDF copy.",
+  "forms": [
+    {
+      "title": "2026-2027 Registration Form",
+      "description": "Please download, print, fill out, and bring this form with you to your first class.",
+      "url": "https://www.dropbox.com/",
+      "button_text": "Download Registration Form (PDF)"
+    },
+    {
+      "title": "Student Liability Release",
+      "description": "Required for all new students joining dance or clogging classes.",
+      "url": "https://www.dropbox.com/",
+      "button_text": "Download Liability Form (PDF)"
+    }
+  ]
+}

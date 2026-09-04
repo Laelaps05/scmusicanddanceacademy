@@ -1,19 +1,23 @@
 media: images
 content:
+  # TAB 1: HOME PAGE CONTENT
   - name: homepage
-    label: Site Content
+    label: "🏠 Home Page Content"
     type: file
     path: content.json
     fields:
       - name: header_logo
         label: Header Logo Image (Optional)
         type: image
+        description: "Upload a PNG or WebP logo file."
       - name: header_title
-        label: Header Text Title (Leave blank if image only)
+        label: Header Text Title
         type: string
+        description: "Text shown next to or in place of the logo. Leave blank if image only."
       - name: announcement
         label: Top Announcement Banner
         type: string
+        description: "Appears in the gold banner at the very top of the page."
       - name: hero_title
         label: Hero Title
         type: string
@@ -55,22 +59,19 @@ content:
           - name: button_url
             label: Card Button Link / URL (Optional)
             type: string
-      - name: forms
-        label: Printable Forms & Downloads
+      - name: locations
+        label: Studio Locations
         type: object
         list: true
         fields:
           - name: title
-            label: Form Title (e.g. Registration Form)
+            label: Location Name (e.g. Columbia Location)
             type: string
-          - name: description
-            label: Short Description
+          - name: address
+            label: Address / Building Info
             type: string
-          - name: url
-            label: Form Link (Dropbox or Google Drive PDF URL)
-            type: string
-          - name: button_text
-            label: Button Label (Optional, e.g. Download PDF)
+          - name: map_url
+            label: Google Maps Link / Directions (Optional)
             type: string
       - name: phone
         label: Phone Number
@@ -78,3 +79,37 @@ content:
       - name: email
         label: Contact Email
         type: string
+
+  # TAB 2: FORMS PAGE CONTENT
+  - name: formspage
+    label: "📄 Forms Page Content"
+    type: file
+    path: forms.json
+    fields:
+      - name: page_title
+        label: Forms Page Title
+        type: string
+        description: "The header at the top of the forms page (e.g. Printable Forms & Documents)."
+      - name: page_subtitle
+        label: Forms Page Subtitle
+        type: string
+        description: "Helper text above the list of forms."
+      - name: forms
+        label: List of Printable Downloads & PDFs
+        type: object
+        list: true
+        fields:
+          - name: title
+            label: Form Title (e.g. 2026 Registration Form)
+            type: string
+          - name: description
+            label: Short Description
+            type: string
+          - name: url
+            label: Form Link (Dropbox or Google Drive PDF URL)
+            type: string
+            description: "Paste the shareable Dropbox PDF link here."
+          - name: button_text
+            label: Button Label
+            type: string
+            description: "Default: Download PDF"
