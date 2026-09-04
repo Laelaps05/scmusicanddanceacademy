@@ -1,0 +1,13 @@
+media: images
+content:
+  - name: homepage
+    label: Homepage Text
+    type: file
+    path: content.json
+    fields:
+      - name: announcement_banner
+        label: Announcement Banner
+        type: string
+      - name: welcome_message
+        label: Welcome Message
+        type: rich-text
