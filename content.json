@@ -13,7 +13,7 @@
     {
       "title": "Tap Dance (Ages 5 to Adults)",
       "text": "Develop rhythm, coordination, and technique in a supportive, fun environment. Classes are tailored for all age groups from young beginners to adult tap enthusiasts.",
-      "image": "/images/IMG_6446.JPG.jpg",
+      "image": "/images/IMG_6446.webp",
       "button_text": "View Tap Schedule",
       "button_url": "#contact"
     },
@@ -28,40 +28,6 @@
       "title": "Clogging (Kids & Adults)",
       "text": "High-energy clogging classes great for socialization, fitness, and building confidence. Open to all skill levels with performance opportunities throughout the year.",
       "image": "/images/d.jpg"
-    }
-  ],
-  "forms": [
-    {
-      "title": "Information page for all students",
-      "description": "Please download, print, fill out, and bring this form with you to your first class.",
-      "url": "https://www.dropbox.com/scl/fi/e3m76gz76671bapznp78g/INFORMATION-PAGE-UPDATED-August-2026.pdf?rlkey=t48tp1vm84r6dg5vxp8azxy7t&dl=0",
-      "button_text": "View PDF"
-    },
-    {
-      "title": "SUMMER TAP AND CLOG CLASSES 2026",
-      "url": "https://www.dropbox.com/scl/fi/igootjn67bpmluzexq9o8/Summer-2026-classes.pdf?rlkey=0gjt9axp7gl90spley0u4ykqr&st=lza5opzm&dl=0",
-      "button_text": "Download Form (PDF)"
-    },
-    {
-      "title": "ADULT REGISTRATION 26-27",
-      "url": "https://www.dropbox.com/scl/fi/386yc1pv7zm8g96lryrsb/adult-registration-26-27-UPDATE-4-30-26.pdf?rlkey=r4esss3238xy2tlky1f5kx4k7&dl=0",
-      "button_text": "Download Form (PDF)"
-    },
-    {
-      "title": "VILLAGE SQUARE TAPPER REGISTRATION FORM",
-      "url": "https://www.dropbox.com/scl/fi/cjln2hhwmor8gaj7aipwj/Registration-Form-Village-Sq-Tappers-26-27.pdf?rlkey=s3t9yg4nzz95onrkg3ehiy64o&dl=0",
-      "button_text": "Download Form (PDF)"
-    },
-    {
-      "title": "TOWN TAPPER REGISTRATION FORM",
-      "url": "https://www.dropbox.com/scl/fi/lxjdqifr3vjgz0utg048k/Registration-Form-Town-Tappers-2026-27.pdf?rlkey=lrhgh0nr76lrvz88hjeg2x8xa&dl=0",
-      "button_text": "Download Form (PDF)"
-    },
-    {
-      "title": "Sign Up for our Newsletter",
-      "description": "Is this mailchimp?",
-      "url": "https://www.scmusicanddanceacademy.com/newsletter",
-      "button_text": "Signup Here"
     }
   ],
   "phone": "803-924-1231",
