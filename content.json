@@ -1,5 +1,5 @@
 {
-  "header_logo": "images/sc-music-and-dance-logo.jpg",
+  "header_logo": "images/logo++sc+music+and+dance+no+number.webp",
   "header_title": "SC Music & Dance Academy",
   "announcement": "FALL REGISTRATION IS NOW OPEN! Classes start after Labor Day.",
   "hero_title": "Dancing for Joy!",
@@ -30,6 +30,20 @@
       "image": "images/d.jpg",
       "button_text": "",
       "button_url": ""
+    }
+  ],
+  "forms": [
+    {
+      "title": "2026-2027 Registration Form",
+      "description": "Please download, print, fill out, and bring this form with you to your first class.",
+      "url": "https://www.dropbox.com/",
+      "button_text": "Download Registration Form (PDF)"
+    },
+    {
+      "title": "Student Liability Release",
+      "description": "Required for all new students joining dance or clogging classes.",
+      "url": "https://www.dropbox.com/",
+      "button_text": "Download Liability Form (PDF)"
     }
   ],
   "phone": "803-924-1231",

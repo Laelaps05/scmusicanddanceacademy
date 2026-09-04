@@ -55,6 +55,23 @@ content:
           - name: button_url
             label: Card Button Link / URL (Optional)
             type: string
+      - name: forms
+        label: Printable Forms & Downloads
+        type: object
+        list: true
+        fields:
+          - name: title
+            label: Form Title (e.g. Registration Form)
+            type: string
+          - name: description
+            label: Short Description
+            type: string
+          - name: url
+            label: Form Link (Dropbox or Google Drive PDF URL)
+            type: string
+          - name: button_text
+            label: Button Label (Optional, e.g. Download PDF)
+            type: string
       - name: phone
         label: Phone Number
         type: string

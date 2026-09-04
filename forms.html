@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Printable Forms - SC Music and Dance Academy</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Announcement Banner -->
+  <div id="announcement" class="banner">Loading announcement...</div>
+
+  <!-- Centered Header -->
+  <header>
+    <a href="index.html" class="logo-link">
+      <img id="header_logo" class="logo-img" src="" alt="SC Music & Dance Academy Logo" style="display: none;">
+      <span id="header_text" class="logo-text"></span>
+    </a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#classes">Classes & Groups</a>
+      <a href="forms.html" class="active">Forms & Downloads</a>
+      <a href="index.html#locations">Locations</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Page Title Banner -->
+  <div class="container">
+    <h1 class="section-title" style="margin-bottom: 10px;">Printable Forms & Documents</h1>
+    <p style="text-align: center; font-size: 1.1rem; margin-bottom: 40px;">
+      Click any form below to view or download a printable PDF copy.
+    </p>
+
+    <!-- Dynamic Forms List Container -->
+    <div class="forms-container" id="forms_container">
+      <p style="text-align: center;">Loading forms...</p>
+    </div>
+  </div>
+
+  <!-- Footer / Contact Information -->
+  <footer id="contact">
+    <h3>SC Music and Dance Academy</h3>
+    <p style="margin: 10px 0;">Classes Monday–Friday (Afternoon & Evening)</p>
+    <p>Email: <a id="email_link" href="">Loading...</a></p>
+    <p>Phone: <a id="phone_link" href="">Loading...</a></p>
+    <p style="margin-top: 25px; font-size: 0.8rem; color: #aaa;">&copy; SC Music and Dance Academy</p>
+  </footer>
+
+  <!-- Script to load content dynamically -->
+  <script>
+    function cleanImagePath(path) {
+      if (!path) return '';
+      let cleanPath = path.trim();
+      if (cleanPath.startsWith('/')) {
+        cleanPath = cleanPath.substring(1);
+      }
+      return cleanPath;
+    }
+
+    fetch('./content.json')
+      .then(res => res.json())
+      .then(data => {
+        // Header Elements
+        const logoImg = document.getElementById('header_logo');
+        const logoText = document.getElementById('header_text');
+
+        if (data.header_logo) {
+          logoImg.src = cleanImagePath(data.header_logo);
+          logoImg.style.display = 'block';
+        }
+
+        if (data.header_title) {
+          logoText.innerText = data.header_title;
+          logoText.style.display = 'block';
+        }
+
+        document.getElementById('announcement').innerText = data.announcement || '';
+
+        // Render Forms List
+        const formsContainer = document.getElementById('forms_container');
+        if (data.forms && Array.isArray(data.forms) && data.forms.length > 0) {
+          formsContainer.innerHTML = data.forms.map(form => `
+            <div class="form-card">
+              <div class="form-card-info">
+                <h3>${form.title}</h3>
+                ${form.description ? `<p>${form.description}</p>` : ''}
+              </div>
+              <div class="form-card-action">
+                <a href="${form.url || '#'}" target="_blank" rel="noopener" class="btn">
+                  ${form.button_text || 'View / Download PDF'}
+                </a>
+              </div>
+            </div>
+          `).join('');
+        } else {
+          formsContainer.innerHTML = '<p style="text-align: center;">No forms currently posted.</p>';
+        }
+
+        // Contact Links
+        if (data.email) {
+          const emailLink = document.getElementById('email_link');
+          emailLink.innerText = data.email;
+          emailLink.href = 'mailto:' + data.email;
+        }
+
+        if (data.phone) {
+          const phoneLink = document.getElementById('phone_link');
+          phoneLink.innerText = data.phone;
+          phoneLink.href = 'tel:' + data.phone.replace(/[^0-9]/g, '');
+        }
+      })
+      .catch(err => console.error("Error loading content.json:", err));
+  </script>
+
+</body>
+</html>
