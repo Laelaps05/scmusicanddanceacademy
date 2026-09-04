@@ -14,21 +14,41 @@ content:
       - name: hero_subtitle
         label: Hero Subtitle
         type: string
+      - name: hero_image
+        label: Main Hero Photo
+        type: image
       - name: about_text
         label: About Section Paragraph
         type: rich-text
       - name: quote
         label: Featured Quote
         type: string
+      - name: programs
+        label: Dance Programs (Photos & Details)
+        type: list
+        fields:
+          - name: title
+            label: Program Name (e.g. Tap Dance)
+            type: string
+          - name: subtitle
+            label: Age / Description Tag
+            type: string
+          - name: image
+            label: Program Photo
+            type: image
+      - name: gallery
+        label: Photo Gallery (Add / Change Photos)
+        type: list
+        fields:
+          - name: image
+            label: Gallery Photo
+            type: image
+          - name: caption
+            label: Photo Caption
+            type: string
       - name: phone
         label: Phone Number
         type: string
       - name: email
         label: Contact Email
-        type: string
-      - name: hero_image
-        label: Top Hero Photo
-        type: image
-      - name: announcement
-        label: Announcement Banner
         type: string

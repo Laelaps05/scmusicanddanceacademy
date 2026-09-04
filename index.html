@@ -1,38 +1,155 @@
-<script>
-  fetch('./content.json')
-    .then(res => res.json())
-    .then(data => {
-      // Image handler: Automatically cleans up leading slashes and messy URLs
-      if (data.hero_image) {
-        let imgPath = data.hero_image.trim();
-        
-        // Remove leading slash if mom or Pages CMS adds one
-        if (imgPath.startsWith('/')) {
-          imgPath = imgPath.substring(1);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SC Music and Dance Academy</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Announcement Banner -->
+  <div id="announcement" class="banner">Loading announcement...</div>
+
+  <!-- Navigation Header -->
+  <header>
+    <a href="#" class="logo">SC Music & Dance Academy</a>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#programs">Classes</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#locations">Locations</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1 id="hero_title">SC Music & Dance Academy</h1>
+    <p id="hero_subtitle">Loading studio information...</p>
+    <a href="#contact" class="btn">Register / Inquire Now</a>
+
+    <div class="hero-image-wrapper">
+      <img id="hero_img" src="" alt="SC Music and Dance Academy Studio Photo">
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <div class="container" id="about">
+    <h2 class="section-title">Welcome to Our Academy</h2>
+    <div id="about_text" style="text-align: center; font-size: 1.1rem;"></div>
+    <div class="quote-box" id="quote"></div>
+  </div>
+
+  <!-- Dynamic Programs Grid -->
+  <div class="container" id="programs">
+    <h2 class="section-title">Our Classes & Groups</h2>
+    <div class="grid" id="programs_container">
+      <!-- Generated dynamically from content.json -->
+    </div>
+  </div>
+
+  <!-- Dynamic Photo Gallery Grid -->
+  <div class="container" id="gallery">
+    <h2 class="section-title">Studio Life & Performances</h2>
+    <div class="gallery-grid" id="gallery_container">
+      <!-- Generated dynamically from content.json -->
+    </div>
+  </div>
+
+  <!-- Studio Locations -->
+  <div class="container" id="locations">
+    <h2 class="section-title">Our Locations</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="card-body">
+          <h3>Columbia Location</h3>
+          <p>Town Theatre / The Unumb Center</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h3>Lexington Location</h3>
+          <p>Village Square Theatre</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer / Contact Information -->
+  <footer id="contact">
+    <h3>SC Music and Dance Academy</h3>
+    <p style="margin: 10px 0;">Classes Monday–Friday (Afternoon & Evening)</p>
+    <p>Email: <a id="email_link" href="">Loading...</a></p>
+    <p>Phone: <a id="phone_link" href="">Loading...</a></p>
+    <p style="margin-top: 25px; font-size: 0.8rem; color: #aaa;">&copy; SC Music and Dance Academy</p>
+  </footer>
+
+  <!-- Script to load content dynamically & clean image paths -->
+  <script>
+    // Helper function to clean image paths (fixes leading slashes)
+    function cleanImagePath(path) {
+      if (!path) return '';
+      let cleanPath = path.trim();
+      if (cleanPath.startsWith('/')) {
+        cleanPath = cleanPath.substring(1);
+      }
+      return cleanPath;
+    }
+
+    fetch('./content.json')
+      .then(res => res.json())
+      .then(data => {
+        // 1. Hero Image & Headers
+        if (data.hero_image) {
+          document.getElementById('hero_img').src = cleanImagePath(data.hero_image);
         }
-        
-        document.getElementById('hero_img').src = imgPath;
-      }
+        document.getElementById('announcement').innerText = data.announcement || '';
+        document.getElementById('hero_title').innerText = data.hero_title || '';
+        document.getElementById('hero_subtitle').innerText = data.hero_subtitle || '';
+        document.getElementById('about_text').innerHTML = data.about_text || '';
+        document.getElementById('quote').innerText = data.quote || '';
 
-      // Text bindings
-      document.getElementById('announcement').innerText = data.announcement || '';
-      document.getElementById('hero_title').innerText = data.hero_title || '';
-      document.getElementById('hero_subtitle').innerText = data.hero_subtitle || '';
-      document.getElementById('about_text').innerHTML = data.about_text || '';
-      document.getElementById('quote').innerText = data.quote || '';
-      
-      // Contact link bindings
-      if (data.email) {
-        const emailLink = document.getElementById('email_link');
-        emailLink.innerText = data.email;
-        emailLink.href = 'mailto:' + data.email;
-      }
+        // 2. Render Programs Cards
+        if (data.programs && Array.isArray(data.programs)) {
+          const programsContainer = document.getElementById('programs_container');
+          programsContainer.innerHTML = data.programs.map(prog => `
+            <div class="card">
+              ${prog.image ? `<div class="card-img-container"><img src="${cleanImagePath(prog.image)}" alt="${prog.title}"></div>` : ''}
+              <div class="card-body">
+                <h3>${prog.title}</h3>
+                <p>${prog.subtitle || ''}</p>
+              </div>
+            </div>
+          `).join('');
+        }
 
-      if (data.phone) {
-        const phoneLink = document.getElementById('phone_link');
-        phoneLink.innerText = data.phone;
-        phoneLink.href = 'tel:' + data.phone.replace(/[^0-9]/g, '');
-      }
-    })
-    .catch(err => console.error("Could not load content.json", err));
-</script>
+        // 3. Render Gallery Grid
+        if (data.gallery && Array.isArray(data.gallery)) {
+          const galleryContainer = document.getElementById('gallery_container');
+          galleryContainer.innerHTML = data.gallery.map(item => `
+            <div class="gallery-item">
+              <img src="${cleanImagePath(item.image)}" alt="${item.caption || 'Studio Photo'}">
+              ${item.caption ? `<div class="gallery-caption">${item.caption}</div>` : ''}
+            </div>
+          `).join('');
+        }
+
+        // 4. Contact Links
+        if (data.email) {
+          const emailLink = document.getElementById('email_link');
+          emailLink.innerText = data.email;
+          emailLink.href = 'mailto:' + data.email;
+        }
+
+        if (data.phone) {
+          const phoneLink = document.getElementById('phone_link');
+          phoneLink.innerText = data.phone;
+          phoneLink.href = 'tel:' + data.phone.replace(/[^0-9]/g, '');
+        }
+      })
+      .catch(err => console.error("Error loading content.json:", err));
+  </script>
+
+</body>
+</html>
