@@ -6,6 +6,10 @@ content:
     type: file
     path: content.json
     fields:
+      - name: announcement
+        label: Top Announcement Banner
+        type: string
+        description: "Appears in the gold banner at the very top of the page."
       - name: header_logo
         label: Header Logo Image (Optional)
         type: image
@@ -14,10 +18,6 @@ content:
         label: Header Text Title
         type: string
         description: "Text shown next to or in place of the logo. Leave blank if image only."
-      - name: announcement
-        label: Top Announcement Banner
-        type: string
-        description: "Appears in the gold banner at the very top of the page."
       - name: hero_title
         label: Hero Title
         type: string
@@ -33,6 +33,10 @@ content:
       - name: hero_button_url
         label: Hero Button Link / URL
         type: string
+      - name: about_title
+        label: About Section Title
+        type: string
+        description: "The heading above the main about text (e.g. Welcome)."
       - name: about_text
         label: About Section Paragraph
         type: rich-text
@@ -82,7 +86,7 @@ content:
 
   # TAB 2: FORMS PAGE CONTENT
   - name: formspage
-    label: "📄 Forms Page Content"
+    label: "📄 Registration Forms & Links"
     type: file
     path: forms.json
     fields:

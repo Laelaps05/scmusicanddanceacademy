@@ -42,7 +42,7 @@
 
   <!-- About Section -->
   <div class="container" id="about">
-    <h2 class="section-title">Welcome to Our Academy</h2>
+    <h2 class="section-title" id="about_title">Welcome to Our Academy</h2>
     <div id="about_text" style="text-align: center; font-size: 1.1rem;"></div>
     <div class="quote-box" id="quote"></div>
   </div>
@@ -122,6 +122,9 @@
         }
 
         // 3. About & Quote
+        if (data.about_title) {
+          document.getElementById('about_title').innerText = data.about_title;
+        }
         document.getElementById('about_text').innerHTML = data.about_text || '';
         document.getElementById('quote').innerText = data.quote || '';
 
