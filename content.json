@@ -2,32 +2,30 @@
   "announcement": "FALL REGISTRATION IS NOW OPEN! Classes start after Labor Day.",
   "hero_title": "Dancing for Joy!",
   "hero_subtitle": "Non-competitive, easy-going dance classes for ages 5 to 95 in Columbia & Lexington, SC.",
-  "hero_image": "images/hero.jpg",
-  "hero_button_text": "Register / Inquire Now",
-  "hero_button_url": "#contact",
+  "hero_image": "/images/dIVA+OPENING+COLLAGE.webp",
+  "hero_button_text": "Adult Registration",
+  "hero_button_url": "https://www.dropbox.com/scl/fi/386yc1pv7zm8g96lryrsb/adult-registration-26-27-UPDATE-4-30-26.pdf?rlkey=r4esss3238xy2tlky1f5kx4k7&dl=0",
   "about_text": "We offer non-competitive, friendly classes focused on building self-confidence, socialization, and developing coordination.",
   "quote": "“There is nothing impossible to him who will try.” — Alexander the Great",
   "feature_cards": [
     {
       "title": "Tap Dance (Ages 5 to Adults)",
       "text": "Develop rhythm, coordination, and technique in a supportive, fun environment. Classes are tailored for all age groups from young beginners to adult tap enthusiasts.",
-      "image": "images/IMG_5810.JPG",
-      "button_text": "View Tap Schedule",
-      "button_url": "#contact"
+      "image": "/images/IMG_6446.JPG.jpg",
+      "button_text": "TOWN TAPPER REGISTRATION FORM",
+      "button_url": "https://www.dropbox.com/scl/fi/lxjdqifr3vjgz0utg048k/Registration-Form-Town-Tappers-2026-27.pdf?rlkey=lrhgh0nr76lrvz88hjeg2x8xa&dl=0"
     },
     {
       "title": "Home of the Columbia Tappers",
       "text": "The Columbia Tappers offer everything from dancing grannies to Charleston flappers to OomPah polka dancers. Contact us for lively, fun entertainment for your event!",
-      "image": "images/IMG_6446.JPG",
+      "image": "/images/columbia+tappers+group.jpg",
       "button_text": "Book Performance",
       "button_url": "#contact"
     },
     {
       "title": "Clogging (Kids & Adults)",
       "text": "High-energy clogging classes great for socialization, fitness, and building confidence. Open to all skill levels with performance opportunities throughout the year.",
-      "image": "images/d.jpg",
-      "button_text": "",
-      "button_url": ""
+      "image": "/images/d.jpg"
     }
   ],
   "phone": "803-924-1231",
