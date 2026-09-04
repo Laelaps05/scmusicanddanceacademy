@@ -1,0 +1,13 @@
+<!-- HTML Elements -->
+<div id="announcement"></div>
+<div id="welcome"></div>
+
+<!-- Script to pull live text from content.json -->
+<script>
+  fetch('./content.json')
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById('announcement').innerText = data.announcement_banner;
+      document.getElementById('welcome').innerHTML = data.welcome_message;
+    });
+</script>
