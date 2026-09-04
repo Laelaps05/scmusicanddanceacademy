@@ -16,8 +16,7 @@
     <a href="#" class="logo">SC Music & Dance Academy</a>
     <nav>
       <a href="#about">About</a>
-      <a href="#programs">Classes</a>
-      <a href="#gallery">Gallery</a>
+      <a href="#classes">Classes & Groups</a>
       <a href="#locations">Locations</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -41,19 +40,11 @@
     <div class="quote-box" id="quote"></div>
   </div>
 
-  <!-- Dynamic Programs Grid -->
-  <div class="container" id="programs">
-    <h2 class="section-title">Our Classes & Groups</h2>
-    <div class="grid" id="programs_container">
-      <!-- Generated dynamically from content.json -->
-    </div>
-  </div>
-
-  <!-- Dynamic Photo Gallery Grid -->
-  <div class="container" id="gallery">
-    <h2 class="section-title">Studio Life & Performances</h2>
-    <div class="gallery-grid" id="gallery_container">
-      <!-- Generated dynamically from content.json -->
+  <!-- Alternating Feature Cards Section -->
+  <div class="container" id="classes">
+    <h2 class="section-title">Our Classes & Programs</h2>
+    <div class="feature-cards-container" id="feature_cards_container">
+      <!-- Rendered dynamically from content.json -->
     </div>
   </div>
 
@@ -61,17 +52,13 @@
   <div class="container" id="locations">
     <h2 class="section-title">Our Locations</h2>
     <div class="grid">
-      <div class="card">
-        <div class="card-body">
-          <h3>Columbia Location</h3>
-          <p>Town Theatre / The Unumb Center</p>
-        </div>
+      <div class="location-card">
+        <h3>Columbia Location</h3>
+        <p>Town Theatre / The Unumb Center</p>
       </div>
-      <div class="card">
-        <div class="card-body">
-          <h3>Lexington Location</h3>
-          <p>Village Square Theatre</p>
-        </div>
+      <div class="location-card">
+        <h3>Lexington Location</h3>
+        <p>Village Square Theatre</p>
       </div>
     </div>
   </div>
@@ -110,32 +97,23 @@
         document.getElementById('about_text').innerHTML = data.about_text || '';
         document.getElementById('quote').innerText = data.quote || '';
 
-        // 2. Render Programs Cards
-        if (data.programs && Array.isArray(data.programs)) {
-          const programsContainer = document.getElementById('programs_container');
-          programsContainer.innerHTML = data.programs.map(prog => `
-            <div class="card">
-              ${prog.image ? `<div class="card-img-container"><img src="${cleanImagePath(prog.image)}" alt="${prog.title}"></div>` : ''}
-              <div class="card-body">
-                <h3>${prog.title}</h3>
-                <p>${prog.subtitle || ''}</p>
+        // 2. Render Alternating Feature Cards
+        if (data.feature_cards && Array.isArray(data.feature_cards)) {
+          const cardsContainer = document.getElementById('feature_cards_container');
+          cardsContainer.innerHTML = data.feature_cards.map(card => `
+            <div class="feature-card">
+              <div class="feature-card-image">
+                <img src="${cleanImagePath(card.image)}" alt="${card.title}">
+              </div>
+              <div class="feature-card-content">
+                <h3>${card.title}</h3>
+                <div>${card.text || ''}</div>
               </div>
             </div>
           `).join('');
         }
 
-        // 3. Render Gallery Grid
-        if (data.gallery && Array.isArray(data.gallery)) {
-          const galleryContainer = document.getElementById('gallery_container');
-          galleryContainer.innerHTML = data.gallery.map(item => `
-            <div class="gallery-item">
-              <img src="${cleanImagePath(item.image)}" alt="${item.caption || 'Studio Photo'}">
-              ${item.caption ? `<div class="gallery-caption">${item.caption}</div>` : ''}
-            </div>
-          `).join('');
-        }
-
-        // 4. Contact Links
+        // 3. Contact Links
         if (data.email) {
           const emailLink = document.getElementById('email_link');
           emailLink.innerText = data.email;
