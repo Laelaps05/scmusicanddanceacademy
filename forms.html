@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Printable Forms - SC Music and Dance Academy</title>
+  <title>Registration Forms & Links - SC Music and Dance Academy</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -18,10 +18,9 @@
       <span id="header_text" class="logo-text"></span>
     </a>
     <nav>
-      <a href="index.html" class="active">Home</a>
-      <a href="index.html#about">About</a>
+      <a href="index.html">Home</a>
       <a href="index.html#classes">Classes & Groups</a>
-      <a href="forms.html">Registration Forms & Links</a>
+      <a href="forms.html" class="active">Registration Forms & Links</a>
       <a href="index.html#locations">Locations</a>
       <a href="index.html#contact">Contact</a>
     </nav>
@@ -29,8 +28,8 @@
 
   <!-- Page Title Banner -->
   <div class="container">
-    <h1 class="section-title" style="margin-bottom: 10px;">Printable Forms & Documents</h1>
-    <p style="text-align: center; font-size: 1.1rem; margin-bottom: 40px;">
+    <h1 id="forms_page_title" class="section-title" style="margin-bottom: 10px;">Registration Forms & Links</h1>
+    <p id="forms_page_subtitle" style="text-align: center; font-size: 1.1rem; margin-bottom: 40px;">
       Click any form below to view or download a printable PDF copy.
     </p>
 
@@ -50,7 +49,7 @@
   </footer>
 
   <!-- Script to load content dynamically -->
-<script>
+  <script>
     function cleanImagePath(path) {
       if (!path) return '';
       let cleanPath = path.trim();
@@ -95,6 +94,13 @@
     fetch('./forms.json')
       .then(res => res.json())
       .then(data => {
+        if (data.page_title) {
+          document.getElementById('forms_page_title').innerText = data.page_title;
+        }
+        if (data.page_subtitle) {
+          document.getElementById('forms_page_subtitle').innerText = data.page_subtitle;
+        }
+
         const formsContainer = document.getElementById('forms_container');
         
         if (data.forms && Array.isArray(data.forms) && data.forms.length > 0) {

@@ -18,10 +18,9 @@
       <span id="header_text" class="logo-text"></span>
     </a>
     <nav>
-      <a href="index.html">Home</a>
-      <a href="index.html#about">About</a>
+      <a href="index.html" class="active">Home</a>
       <a href="index.html#classes">Classes & Groups</a>
-      <a href="forms.html">Forms & Downloads</a>
+      <a href="forms.html">Registration Forms & Links</a>
       <a href="index.html#locations">Locations</a>
       <a href="index.html#contact">Contact</a>
     </nav>
@@ -56,18 +55,11 @@
     </div>
   </div>
 
-  <!-- Studio Locations -->
+  <!-- Studio Locations (Dynamic Container) -->
   <div class="container" id="locations">
     <h2 class="section-title">Our Locations</h2>
-    <div class="grid">
-      <div class="location-card">
-        <h3>Columbia Location</h3>
-        <p>Town Theatre / The Unumb Center</p>
-      </div>
-      <div class="location-card">
-        <h3>Lexington Location</h3>
-        <p>Village Square Theatre</p>
-      </div>
+    <div class="grid" id="locations_container">
+      <!-- Rendered dynamically from content.json -->
     </div>
   </div>
 
@@ -82,7 +74,6 @@
 
   <!-- Script to load content dynamically & clean image paths -->
   <script>
-    // Helper function to clean image paths
     function cleanImagePath(path) {
       if (!path) return '';
       let cleanPath = path.trim();
@@ -134,7 +125,7 @@
         document.getElementById('about_text').innerHTML = data.about_text || '';
         document.getElementById('quote').innerText = data.quote || '';
 
-        // 4. Render Alternating Feature Cards (With Optional Buttons)
+        // 4. Render Alternating Feature Cards
         if (data.feature_cards && Array.isArray(data.feature_cards)) {
           const cardsContainer = document.getElementById('feature_cards_container');
           cardsContainer.innerHTML = data.feature_cards.map(card => `
@@ -151,7 +142,19 @@
           `).join('');
         }
 
-        // 5. Contact Links
+        // 5. Render Studio Locations
+        if (data.locations && Array.isArray(data.locations)) {
+          const locationsContainer = document.getElementById('locations_container');
+          locationsContainer.innerHTML = data.locations.map(loc => `
+            <div class="location-card">
+              <h3>${loc.title}</h3>
+              <p>${loc.address || ''}</p>
+              ${loc.map_url ? `<p style="margin-top: 15px;"><a href="${loc.map_url}" target="_blank" rel="noopener" class="btn card-btn" style="font-size:0.85rem; padding:8px 16px;">View on Map</a></p>` : ''}
+            </div>
+          `).join('');
+        }
+
+        // 6. Contact Links
         if (data.email) {
           const emailLink = document.getElementById('email_link');
           emailLink.innerText = data.email;
