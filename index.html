@@ -22,14 +22,17 @@
     </nav>
   </header>
 
-  <!-- Hero Section -->
+  <!-- Full-Width Hero Section -->
   <section class="hero">
-    <h1 id="hero_title">SC Music & Dance Academy</h1>
-    <p id="hero_subtitle">Loading studio information...</p>
-    <a href="#contact" class="btn">Register / Inquire Now</a>
-
-    <div class="hero-image-wrapper">
+    <div class="hero-bg">
       <img id="hero_img" src="" alt="SC Music and Dance Academy Studio Photo">
+      <div class="hero-overlay"></div>
+    </div>
+    
+    <div class="hero-content">
+      <h1 id="hero_title">SC Music & Dance Academy</h1>
+      <p id="hero_subtitle">Loading studio information...</p>
+      <a href="#contact" class="btn">Register / Inquire Now</a>
     </div>
   </section>
 
@@ -74,7 +77,7 @@
 
   <!-- Script to load content dynamically & clean image paths -->
   <script>
-    // Helper function to clean image paths (fixes leading slashes)
+    // Helper function to clean image paths
     function cleanImagePath(path) {
       if (!path) return '';
       let cleanPath = path.trim();
