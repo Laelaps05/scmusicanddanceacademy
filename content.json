@@ -1,10 +1,10 @@
 {
-  "header_logo": "images/logo++sc+music+and+dance+no+number.webp",
+  "header_logo": "/images/sc-music-and-dance-logo.jpg",
   "header_title": "SC Music & Dance Academy",
   "announcement": "FALL REGISTRATION IS NOW OPEN! Classes start after Labor Day.",
   "hero_title": "Dancing for Joy!",
   "hero_subtitle": "Non-competitive, easy-going dance classes for ages 5 to 95 in Columbia & Lexington, SC.",
-  "hero_image": "images/hero.jpg",
+  "hero_image": "/images/dIVA+OPENING+COLLAGE.webp",
   "hero_button_text": "Register / Inquire Now",
   "hero_button_url": "#contact",
   "about_text": "We offer non-competitive, friendly classes focused on building self-confidence, socialization, and developing coordination.",
@@ -13,37 +13,53 @@
     {
       "title": "Tap Dance (Ages 5 to Adults)",
       "text": "Develop rhythm, coordination, and technique in a supportive, fun environment. Classes are tailored for all age groups from young beginners to adult tap enthusiasts.",
-      "image": "images/IMG_5810.JPG",
+      "image": "/images/IMG_6446.JPG.jpg",
       "button_text": "View Tap Schedule",
       "button_url": "#contact"
     },
     {
       "title": "Home of the Columbia Tappers",
       "text": "The Columbia Tappers offer everything from dancing grannies to Charleston flappers to OomPah polka dancers. Contact us for lively, fun entertainment for your event!",
-      "image": "images/IMG_6446.JPG",
-      "button_text": "Book Performance",
+      "image": "/images/columbia+tappers+group.jpg",
+      "button_text": "Register",
       "button_url": "#contact"
     },
     {
       "title": "Clogging (Kids & Adults)",
       "text": "High-energy clogging classes great for socialization, fitness, and building confidence. Open to all skill levels with performance opportunities throughout the year.",
-      "image": "images/d.jpg",
-      "button_text": "",
-      "button_url": ""
+      "image": "/images/d.jpg"
     }
   ],
   "forms": [
     {
-      "title": "2026-2027 Registration Form",
+      "title": "Information page for all students",
       "description": "Please download, print, fill out, and bring this form with you to your first class.",
-      "url": "https://www.dropbox.com/",
-      "button_text": "Download Registration Form (PDF)"
+      "url": "https://www.dropbox.com/scl/fi/e3m76gz76671bapznp78g/INFORMATION-PAGE-UPDATED-August-2026.pdf?rlkey=t48tp1vm84r6dg5vxp8azxy7t&dl=0",
+      "button_text": "View PDF"
     },
     {
-      "title": "Student Liability Release",
-      "description": "Required for all new students joining dance or clogging classes.",
-      "url": "https://www.dropbox.com/",
-      "button_text": "Download Liability Form (PDF)"
+      "title": "SUMMER TAP AND CLOG CLASSES 2026",
+      "url": "https://www.dropbox.com/scl/fi/igootjn67bpmluzexq9o8/Summer-2026-classes.pdf?rlkey=0gjt9axp7gl90spley0u4ykqr&st=lza5opzm&dl=0",
+      "button_text": "Download Form (PDF)"
+    },
+    {
+      "title": "ADULT REGISTRATION 26-27",
+      "url": "https://www.dropbox.com/scl/fi/386yc1pv7zm8g96lryrsb/adult-registration-26-27-UPDATE-4-30-26.pdf?rlkey=r4esss3238xy2tlky1f5kx4k7&dl=0",
+      "button_text": "Download Form (PDF)"
+    },
+    {
+      "title": "VILLAGE SQUARE TAPPER REGISTRATION FORM",
+      "url": "https://www.dropbox.com/scl/fi/cjln2hhwmor8gaj7aipwj/Registration-Form-Village-Sq-Tappers-26-27.pdf?rlkey=s3t9yg4nzz95onrkg3ehiy64o&dl=0",
+      "button_text": "Download Form (PDF)"
+    },
+    {
+      "title": "TOWN TAPPER REGISTRATION FORM",
+      "url": "https://www.dropbox.com/scl/fi/lxjdqifr3vjgz0utg048k/Registration-Form-Town-Tappers-2026-27.pdf?rlkey=lrhgh0nr76lrvz88hjeg2x8xa&dl=0",
+      "button_text": "Download Form (PDF)"
+    },
+    {
+      "title": "Sign Up for our Newsletter",
+      "url": "https://www.scmusicanddanceacademy.com/newsletter"
     }
   ],
   "phone": "803-924-1231",
