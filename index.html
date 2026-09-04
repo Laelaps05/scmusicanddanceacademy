@@ -11,9 +11,12 @@
   <!-- Top Announcement Banner -->
   <div id="announcement" class="banner">Loading announcement...</div>
 
-  <!-- Navigation Header -->
+  <!-- Dynamic Navigation Header -->
   <header>
-    <a href="#" class="logo">SC Music & Dance Academy</a>
+    <a href="#" class="logo-link">
+      <img id="header_logo" class="logo-img" src="" alt="SC Music & Dance Academy Logo" style="display: none;">
+      <span id="header_text" class="logo-text"></span>
+    </a>
     <nav>
       <a href="#about">About</a>
       <a href="#classes">Classes & Groups</a>
@@ -90,7 +93,25 @@
     fetch('./content.json')
       .then(res => res.json())
       .then(data => {
-        // 1. Hero Elements
+        // 1. Dynamic Header Logo & Title
+        const logoImg = document.getElementById('header_logo');
+        const logoText = document.getElementById('header_text');
+
+        if (data.header_logo) {
+          logoImg.src = cleanImagePath(data.header_logo);
+          logoImg.style.display = 'block';
+        } else {
+          logoImg.style.display = 'none';
+        }
+
+        if (data.header_title) {
+          logoText.innerText = data.header_title;
+          logoText.style.display = 'inline';
+        } else {
+          logoText.style.display = 'none';
+        }
+
+        // 2. Hero Elements
         if (data.hero_image) {
           document.getElementById('hero_img').src = cleanImagePath(data.hero_image);
         }
@@ -107,11 +128,11 @@
           heroBtn.href = data.hero_button_url;
         }
 
-        // 2. About & Quote
+        // 3. About & Quote
         document.getElementById('about_text').innerHTML = data.about_text || '';
         document.getElementById('quote').innerText = data.quote || '';
 
-        // 3. Render Alternating Feature Cards (With Optional Buttons)
+        // 4. Render Alternating Feature Cards (With Optional Buttons)
         if (data.feature_cards && Array.isArray(data.feature_cards)) {
           const cardsContainer = document.getElementById('feature_cards_container');
           cardsContainer.innerHTML = data.feature_cards.map(card => `
@@ -128,7 +149,7 @@
           `).join('');
         }
 
-        // 4. Contact Links
+        // 5. Contact Links
         if (data.email) {
           const emailLink = document.getElementById('email_link');
           emailLink.innerText = data.email;
