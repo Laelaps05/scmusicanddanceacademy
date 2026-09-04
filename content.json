@@ -5,8 +5,8 @@
   "hero_title": "Dancing for Joy!",
   "hero_subtitle": "Non-competitive, easy-going dance classes for ages 5 to 95 in Columbia & Lexington, SC.",
   "hero_image": "/images/dIVA+OPENING+COLLAGE.webp",
-  "hero_button_text": "Register / Inquire Now",
-  "hero_button_url": "#contact",
+  "hero_button_text": "Register Here!",
+  "hero_button_url": "/forms.html",
   "about_text": "We offer non-competitive, friendly classes focused on building self-confidence, socialization, and developing coordination.",
   "quote": "“There is nothing impossible to him who will try.” — Alexander the Great",
   "feature_cards": [
@@ -15,14 +15,14 @@
       "text": "Develop rhythm, coordination, and technique in a supportive, fun environment. Classes are tailored for all age groups from young beginners to adult tap enthusiasts.",
       "image": "/images/IMG_6446.webp",
       "button_text": "View Tap Schedule",
-      "button_url": "#contact"
+      "button_url": "/forms.html"
     },
     {
       "title": "Home of the Columbia Tappers",
       "text": "The Columbia Tappers offer everything from dancing grannies to Charleston flappers to OomPah polka dancers. Contact us for lively, fun entertainment for your event!",
       "image": "/images/columbia+tappers+group.jpg",
       "button_text": "Register",
-      "button_url": "#contact"
+      "button_url": "/forms.html"
     },
     {
       "title": "Clogging (Kids & Adults)",
@@ -33,6 +33,16 @@
       "title": "About",
       "text": "We offer non-competitive, easy-going classes - great for socialization, building self-confidence and developing coordination.",
       "image": "/images/possible+1.JPG.jpg"
+    }
+  ],
+  "locations": [
+    {
+      "title": "COLUMBIA",
+      "address": "Town Theatre/ The Unumb Center"
+    },
+    {
+      "title": " LEXINGTON",
+      "address": "Village Square Theatre"
     }
   ],
   "phone": "803-924-1231",
