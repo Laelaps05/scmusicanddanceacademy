@@ -17,6 +17,12 @@ content:
       - name: hero_image
         label: Main Hero Photo
         type: image
+      - name: hero_button_text
+        label: Hero Button Text
+        type: string
+      - name: hero_button_url
+        label: Hero Button Link / URL
+        type: string
       - name: about_text
         label: About Section Paragraph
         type: rich-text
@@ -37,6 +43,12 @@ content:
           - name: image
             label: Card Photo
             type: image
+          - name: button_text
+            label: Card Button Text (Optional)
+            type: string
+          - name: button_url
+            label: Card Button Link / URL (Optional)
+            type: string
       - name: phone
         label: Phone Number
         type: string

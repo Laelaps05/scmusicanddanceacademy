@@ -32,7 +32,7 @@
     <div class="hero-content">
       <h1 id="hero_title">SC Music & Dance Academy</h1>
       <p id="hero_subtitle">Loading studio information...</p>
-      <a href="#contact" class="btn">Register / Inquire Now</a>
+      <a id="hero_btn" href="#contact" class="btn">Register / Inquire Now</a>
     </div>
   </section>
 
@@ -90,17 +90,28 @@
     fetch('./content.json')
       .then(res => res.json())
       .then(data => {
-        // 1. Hero Image & Headers
+        // 1. Hero Elements
         if (data.hero_image) {
           document.getElementById('hero_img').src = cleanImagePath(data.hero_image);
         }
         document.getElementById('announcement').innerText = data.announcement || '';
         document.getElementById('hero_title').innerText = data.hero_title || '';
         document.getElementById('hero_subtitle').innerText = data.hero_subtitle || '';
+        
+        // Dynamic Hero Button
+        const heroBtn = document.getElementById('hero_btn');
+        if (data.hero_button_text) {
+          heroBtn.innerText = data.hero_button_text;
+        }
+        if (data.hero_button_url) {
+          heroBtn.href = data.hero_button_url;
+        }
+
+        // 2. About & Quote
         document.getElementById('about_text').innerHTML = data.about_text || '';
         document.getElementById('quote').innerText = data.quote || '';
 
-        // 2. Render Alternating Feature Cards
+        // 3. Render Alternating Feature Cards (With Optional Buttons)
         if (data.feature_cards && Array.isArray(data.feature_cards)) {
           const cardsContainer = document.getElementById('feature_cards_container');
           cardsContainer.innerHTML = data.feature_cards.map(card => `
@@ -111,12 +122,13 @@
               <div class="feature-card-content">
                 <h3>${card.title}</h3>
                 <div>${card.text || ''}</div>
+                ${card.button_text ? `<a href="${card.button_url || '#contact'}" class="btn card-btn">${card.button_text}</a>` : ''}
               </div>
             </div>
           `).join('');
         }
 
-        // 3. Contact Links
+        // 4. Contact Links
         if (data.email) {
           const emailLink = document.getElementById('email_link');
           emailLink.innerText = data.email;

@@ -19,7 +19,7 @@ body {
   line-height: 1.6; 
 }
 
-/* Announcement Banner */
+/* Top Announcement Banner */
 .banner { 
   background: var(--accent); 
   color: var(--dark); 
@@ -59,7 +59,7 @@ nav a:hover {
   color: var(--primary); 
 }
 
-/* Hero Section - Grid Stack Layering */
+/* Hero Section - Grid Stacking */
 .hero { 
   display: grid;
   grid-template-areas: "hero-layer";
@@ -82,11 +82,10 @@ nav a:hover {
 .hero-bg img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Stretches and crops photo edge-to-edge without distortion */
+  object-fit: cover;
   display: block;
 }
 
-/* Dark gradient overlay for text readability */
 .hero-overlay {
   position: absolute;
   top: 0;
@@ -108,27 +107,28 @@ nav a:hover {
 .hero h1 { 
   font-size: 3.2rem; 
   margin-bottom: 15px; 
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  text-shadow: 0 2px 10px rgba(0,0,0,0.4);
 }
 
 .hero p { 
   font-size: 1.3rem; 
   max-width: 650px; 
   margin: 0 auto 25px; 
-  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
+  text-shadow: 0 1px 5px rgba(0,0,0,0.4);
 }
 
+/* Buttons */
 .btn { 
   display: inline-block; 
   background: var(--accent); 
   color: var(--dark); 
-  padding: 14px 30px; 
-  border-radius: 30px; 
+  padding: 12px 26px; 
+  border-radius: 25px; 
   text-decoration: none; 
   font-weight: bold; 
-  font-size: 1.05rem;
+  font-size: 1rem;
   transition: background 0.2s, transform 0.2s; 
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
 }
 
 .btn:hover { 
@@ -166,7 +166,6 @@ nav a:hover {
   box-shadow: 0 4px 20px rgba(0,0,0,0.06);
 }
 
-/* Alternate image side on every even card */
 .feature-card:nth-child(even) {
   flex-direction: row-reverse;
 }
@@ -201,6 +200,12 @@ nav a:hover {
   font-size: 1.05rem;
   color: var(--dark);
   line-height: 1.7;
+}
+
+.card-btn {
+  margin-top: 20px;
+  font-size: 0.95rem;
+  padding: 10px 22px;
 }
 
 /* Location Cards Grid */
